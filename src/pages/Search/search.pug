@@ -1,0 +1,15 @@
+- var characters = locals
+
+mixin card(item)
+  .col
+    .card.h-100.position-relative(style="cursor: pointer")
+      span(style="display: none") #{item.id}
+      img.card-img-top(src=item.image alt=item.name)
+      .card-body
+        h5.card-title #{item.name}
+
+.container.mt-5.pt-5
+  h2.mt-4.pt-4.mt-sm-2.pt-sm-2.mt-md-1.pt-md-1 Results
+  .row.row-cols-2.row-cols-md-3.row-cols-lg-4.g-2.g-sm-3.mt-3
+    each character in characters 
+      +card(character)

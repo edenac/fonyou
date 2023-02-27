@@ -1,0 +1,26 @@
+- var route = search ? `/search/${search}/page/` : "/page/"
+
+mixin pages(page)
+  - var amountLinks = page < 3 ? page+3 : page+2;
+
+  - for (var i = page-2; i <= amountLinks ; i++) {
+    if i > 1 && i < pages
+      li.page-item(class=`${page === i ? "active": ""}` style=`${page === i ? "pointer-events: none": ""}`)
+        a.page-link(href=`${pathURL}#${route}${i}`) #{i}
+  - }
+
+nav.m-5
+  ul.pagination.pagination.justify-content-center
+    li.page-item(class=`${page < 2 ? "disabled" : ""}`)
+        a.page-link(href=`${page === 1 ? "#" : pathURL+"#"+route+(page-1)}`)
+          span &laquo;
+    li.page-item(class=`${page === 1 ? "active": ""}` style=`${page === 1 ? "pointer-events: none": ""}`)
+      a.page-link(href=`${pathURL}#${route}1`) 1
+    +pages(page)
+    - if (pages !== 1 ) {
+      li.page-item(class=`${page === pages ? "active": ""}` style=`${page === pages ? "pointer-events: none": ""}`)
+        a.page-link(href=`${pathURL}#${route}${pages}`) #{pages}
+    - }
+    li.page-item(class=`${page === pages ? "disabled" : ""}`)
+      a.page-link(href=`${page === pages ? "#" : pathURL+"#"+route+(page+1)}`)
+        span &raquo;

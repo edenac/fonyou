@@ -1,0 +1,20 @@
+#characterModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title #{name}
+        button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+      .modal-body.row
+        .col 
+          img(src=image, alt=name width="250")
+        .col
+          span Status:  
+          p.fs-5.fw-bolder #{status}
+          span Species:  
+          p.fs-5.fw-bolder #{species}
+          span Gender:  
+          p.fs-5.fw-bolder #{gender}
+          span Origin:  
+          p.fs-5.fw-bolder #{origin.name}
+          span Location:  
+          p.fs-5.fw-bolder #{location.name}
