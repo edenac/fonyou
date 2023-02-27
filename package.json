@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack server --open --mode development"
+    "start": "webpack server --open --mode development",
+    "predeploy": "npm run build",
+    "deploy":"gh-pages -d build"
+
   },
   "keywords": [],
   "author": "Erick Acevedo",
@@ -27,5 +30,6 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
-  }
+  },
+  "homepage": "https://edenac.github.io/fonyou"
 }
